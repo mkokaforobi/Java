@@ -1,0 +1,21 @@
+4. What is a sequence statement?
+
+A sequence means the computer follows instructions one after another, from top to bottom.
+
+For example, making tea:
+
+Boil water.
+Put tea in a cup.
+Pour hot water.
+Add sugar.
+Stir.
+
+The computer works in the same way: Step 1 → Step 2 → Step 3 → Step 4.
+
+11. 
+
+System.out.println(total);
+double total = price + tax;
+
+double total = price + tax;
+System.out.println(total);
