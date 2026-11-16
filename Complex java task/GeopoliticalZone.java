@@ -1,59 +1,89 @@
 
 import java.util.Scanner;
 
+enum Zone {
+    NORTH_CENTRAL,
+    NORTH_EAST,
+    NORTH_WEST,
+    SOUTH_EAST,
+    SOUTH_SOUTH,
+    SOUTH_WEST
+}
+
 public class GeopoliticalZone {
 
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Enter a state:");
-        String state = input.nextLine();
+        System.out.println("Enter a Nigerian state:");
+        String state = input.nextLine().toUpperCase();
 
-        if (state.equalsIgnoreCase("Lagos") || state.equalsIgnoreCase("Ogun") ||
-            state.equalsIgnoreCase("Oyo") || state.equalsIgnoreCase("Osun") ||
-            state.equalsIgnoreCase("Ondo") || state.equalsIgnoreCase("Ekiti")) {
+        Zone zone = null;
 
-            System.out.println("South West");
+        switch (state) {
 
-        } else if (state.equalsIgnoreCase("Abia") || state.equalsIgnoreCase("Anambra") ||
-                   state.equalsIgnoreCase("Imo") || state.equalsIgnoreCase("Enugu") ||
-                   state.equalsIgnoreCase("Ebonyi")) {
+            case "LAGOS":
+            case "OGUN":
+            case "OYO":
+            case "OSUN":
+            case "ONDO":
+            case "EKITI":
+                zone = Zone.SOUTH_WEST;
+                break;
 
-            System.out.println("South East");
+            case "ABIA":
+            case "ANAMBRA":
+            case "IMO":
+            case "ENUGU":
+            case "EBONYI":
+                zone = Zone.SOUTH_EAST;
+                break;
 
-        } else if (state.equalsIgnoreCase("Rivers") ||
-                   state.equalsIgnoreCase("Delta") || state.equalsIgnoreCase("Edo") ||
-                   state.equalsIgnoreCase("Bayelsa") || state.equalsIgnoreCase("Akwa-Ibom") ||
-                   state.equalsIgnoreCase("Cross-River")) {
+            case "RIVERS":
+            case "DELTA":
+            case "EDO":
+            case "BAYELSA":
+            case "AKWA IBOM":
+            case "CROSS RIVER":
+                zone = Zone.SOUTH_SOUTH;
+                break;
 
-            System.out.println("South South");
+            case "BENUE":
+            case "KOGI":
+            case "KWARA":
+            case "NIGER":
+            case "PLATEAU":
+            case "NASARAWA":
+            case "FCT":
+                zone = Zone.NORTH_CENTRAL;
+                break;
 
-        } else if (state.equalsIgnoreCase("Benue") ||
-                   state.equalsIgnoreCase("Kogi") || state.equalsIgnoreCase("Kwara") ||
-                   state.equalsIgnoreCase("Niger") || state.equalsIgnoreCase("Plateau") ||
-                   state.equalsIgnoreCase("Nasarawa") || state.equalsIgnoreCase("FCT")) {
+            case "ADAMAWA":
+            case "BAUCHI":
+            case "BORNO":
+            case "GOMBE":
+            case "TARABA":
+            case "YOBE":
+                zone = Zone.NORTH_EAST;
+                break;
 
-            System.out.println("North Central");
+            case "KANO":
+            case "KADUNA":
+            case "KATSINA":
+            case "KEBBI":
+            case "SOKOTO":
+            case "JIGAWA":
+            case "ZAMFARA":
+                zone = Zone.NORTH_WEST;
+                break;
 
-        } else if (state.equalsIgnoreCase("Adamawa") ||
-                   state.equalsIgnoreCase("Bauchi") || state.equalsIgnoreCase("Borno") ||
-                   state.equalsIgnoreCase("Gombe") || state.equalsIgnoreCase("Taraba") ||
-                   state.equalsIgnoreCase("Yobe")) {
+            default:
+                System.out.println("Invalid state");
+        }
 
-            System.out.println("North East");
-
-        } else if (state.equalsIgnoreCase("Kano") ||
-                   state.equalsIgnoreCase("Kaduna") || state.equalsIgnoreCase("Katsina") ||
-                   state.equalsIgnoreCase("Kebbi") || state.equalsIgnoreCase("Sokoto") ||
-                   state.equalsIgnoreCase("Jigawa") || state.equalsIgnoreCase("Zamfara")) {
-
-            System.out.println("North West");
-
-        } else {
-
-            System.out.println("Invalid state");
-
+        if (zone != null) {
+            System.out.println(state + " belongs to " + zone);
         }
 
         
